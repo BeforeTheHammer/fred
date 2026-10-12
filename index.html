@@ -36,14 +36,14 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16p
 .wrap{position:relative;z-index:1;max-width:440px;margin:0 auto;display:grid;gap:16px}
 
 .ticket{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;position:relative;box-shadow:0 18px 40px -24px rgba(8,40,22,.45)}
-.top{background:var(--green);color:var(--green-ink);padding:22px 22px 26px;position:relative;overflow:hidden}
+.top{background:var(--green);color:var(--green-ink);padding:22px 22px 64px;position:relative;overflow:hidden}
 .lot{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:.85;display:flex;justify-content:space-between;gap:12px}
 h1{font-family:var(--display);font-stretch:118%;font-weight:850;font-size:clamp(38px,11vw,50px);line-height:.95;letter-spacing:-.01em;margin:26px 0 8px;text-wrap:balance}
 .role{font-stretch:100%;font-weight:600;font-size:16px;opacity:.92}
 .gavel{position:absolute;right:-8px;top:34px;width:120px;height:120px;transform-origin:85% 85%;opacity:.95}
 .strike{animation:strike .9s cubic-bezier(.5,-.4,.3,1.4) .35s both}
 @keyframes strike{0%{transform:rotate(-38deg)}55%{transform:rotate(8deg)}70%{transform:rotate(0)}100%{transform:rotate(0)}}
-.stamp{position:absolute;right:18px;bottom:-14px;font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);border:1.5px solid var(--brass);border-radius:6px;padding:4px 8px;background:var(--card);transform:rotate(-6deg);animation:stamp .35s ease-out 1.05s both}
+.stamp{position:absolute;right:18px;bottom:18px;font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);border:1.5px solid var(--brass);border-radius:6px;padding:4px 8px;background:var(--card);transform:rotate(-6deg);animation:stamp .35s ease-out 1.05s both}
 @keyframes stamp{from{transform:rotate(-6deg) scale(1.6);opacity:0}to{transform:rotate(-6deg) scale(1);opacity:1}}
 .perf{height:0;border-top:2px dashed var(--line);margin:0 18px;position:relative}
 .perf::before,.perf::after{content:"";position:absolute;top:-11px;width:20px;height:20px;border-radius:50%;background:var(--bg);border:1px solid var(--line)}
@@ -53,11 +53,11 @@ h1{font-family:var(--display);font-stretch:118%;font-weight:850;font-size:clamp(
 .pitch{margin:0;color:var(--muted);font-size:15px;max-width:38ch}
 .pitch b{color:var(--ink);font-weight:650}
 .rows{display:grid;gap:10px}
-.row{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;padding:12px 12px 12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--chip)}
-.row .k{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);width:46px}
-.row .v{font-weight:650;font-size:16px;min-width:0;overflow-wrap:anywhere;user-select:all;font-variant-numeric:tabular-nums}
-.row .acts{display:flex;gap:6px}
-.mini{font:600 13px var(--body);padding:7px 10px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;text-decoration:none;white-space:nowrap}
+.row{display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-areas:"k v" "acts acts";align-items:center;gap:10px 12px;padding:14px;border:1px solid var(--line);border-radius:12px;background:var(--chip)}
+.row .k{grid-area:k;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);width:46px}
+.row .v{grid-area:v;font-weight:650;font-size:18px;min-width:0;overflow-wrap:anywhere;user-select:all;font-variant-numeric:tabular-nums}
+.row .acts{grid-area:acts;display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:8px}
+.mini{font:600 14px var(--body);text-align:center;padding:10px 10px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;text-decoration:none;white-space:nowrap}
 .mini:hover{border-color:var(--green)}
 .mini:focus-visible,.cta:focus-visible,.qrbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
 .ctas{display:grid;gap:10px}
